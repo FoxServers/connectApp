@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FS: Connect</title>
+    <link href="../static/index.css" rel="stylesheet">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+</head>
+
+<body>
+    <header>
+        <div id="top">
+            <!-- <p>Hostname/Server</p>
+            <p>Port</p>
+            <p>En?</p> -->
+            <img src="{{url_for('static', filename='FoxServers_Color_1.0.png')}}" alt="FoxServers Logo" height="60rem" width="45rem">
+        </div>
+    </header>
+    <div id="main">
+        <div id="servers-table">
+            <table>
+                <tbody id="tableBody">
+                    {% for server in server_data %}
+                    <form action="http://127.0.0.1:5000/updateEntry" method="POST">
+                        <tr>
+                            <button style='display: none' type="submit" onclick="return false"></button>
+                            <td class="hostname">
+                                <input readonly type="text" id="hostname" name="hostname" value={{server[0]}}>
+                            </td> 
+                            <td class="port">
+                                <input readonly type="text" onkeypress="validatePort(event)" maxlength="5" id="port" name="port" placeholder="Port" value={{server[1]}} oncopy="copyServerPort(this)", ondblclick="copyServerPort(this)">
+                            </td>
+                            <td class="enable">
+                                <input type="checkbox" id="isEnabled" name="isEnabled" {{server[2]}} onChange="this.form.submit()">
+                            </td>
+                            <td class="update">
+                                <!-- <button name="update" value="update" type="submit">Update</button> -->
+                                <input style='display: none' readonly name="update" value="update" type="text"></input>
+                            </td>
+                            <td class="delete">
+                                <button name="delete" value="delete" type="submit">X</button>
+                            </td>
+                        </tr>
+                    </form>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="copyAlert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            Copied server to clipboard!
+        </div>
+        <div id="errors">
+            {% for error in errors %}
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                {{error}}
+            </div>
+            {% endfor %}
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Add/Edit Record</h2>
+                </div>
+                <div class="modal-body">
+                    <form action="http://127.0.0.1:5000/addEntry" method="POST">
+                        <input type="text" id="hostname" class="hostname" name="hostname" placeholder="Server" value="">
+                        <input type="text" onkeypress="validatePort(event)" maxlength="5" id="port" class="port" name="port" placeholder="Port" value="">
+                        <input type="checkbox" id="isEnabled" name="isEnabled">
+                        <button name="add" value="add" type="submit">Add/Edit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <h3>&nbsp;</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="record_manager">
+            <button id="addRecord" type="button">Add / Edit </button>
+        </div>
+        <div id="connection_manager">
+            <div class="path">
+                <form action="http://127.0.0.1:5000/updatePath" method="POST">
+                    <label for="path">Path to launcher:</label>
+                    <input type="text" id="path" name="path" , placeholder="enter the full path" , value={{path}}>
+                    <button name="update" value="update" type="submit">Update</button>
+                </form>
+            </div>
+            <form action="http://127.0.0.1:5000/connect" method="POST">
+                <button name="disconnect" value="disconnect" type="submit">Disconnect</button>
+                <button name="connect" value="connect" type="submit">Connect</button>
+            </form>
+        </div>
+    </footer>
+    <script>
+        function copyServerPort(el) {
+            var copyalert = document.getElementById("copyAlert");
+            var copyText = el
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+            var replacetext = "127.0.0.1:" + copyText.value
+            navigator.clipboard.writeText(replacetext);
+            copyalert.className = "show";
+            setTimeout(()=>{ copyalert.className = copyalert.className.replace("show", ""); }, 3000);
+            /**alert("Copied the text: " + replacetext);**/
+        }
+
+        function validatePort(evt) {
+            var theEvent = evt || window.event;
+
+            // Handle paste
+            if (theEvent.type === 'paste') {
+                key = event.clipboardData.getData('text/plain');
+            } else {
+                // Handle key press
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+            }
+            var regex = /[0-9]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
+
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("addRecord");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

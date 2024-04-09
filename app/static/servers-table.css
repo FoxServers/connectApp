@@ -1,0 +1,91 @@
+  #servers-table table {
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;
+    padding: 0px;
+    background: red;
+    margin: 0 auto;
+}
+    
+#servers-table th,
+#servers-table td {
+    border-left: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 1px;
+    padding-inline: 2px;
+    padding-bottom: 1px;
+}
+
+#servers-table td.select {
+    width: 1.5rem;
+}
+
+#servers-table td.port {
+    width: 3.5rem;
+}
+
+#servers-table td.enable {
+    width: 1.5rem;
+}
+
+#servers-table td.update {
+    /* width: 3.5rem; */
+    width: 0;
+    background: var(--bg2);
+}
+
+#servers-table td.delete {
+    width: 1.5rem;
+    background: var(--bg2);
+    border-left: none;
+}
+
+#servers-table tbody tr td input[type=text] {
+    width: 100%;
+    margin: 0;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+#servers-table tbody tr td input[type=checkbox] {
+    margin: auto;
+}
+
+#servers-table #tableBody tr:nth-child(even) {
+    background-color: var(--bg2);
+}
+
+#servers-table #tableBody tr:nth-child(odd) {
+    background-color: var(--bg3);
+}
+
+#servers-table input[type=text] {
+    border:0;
+    outline:0;
+    background: none;
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--font-size1);
+}
+
+#servers-table input[type=checkbox] {
+    border:0;
+    outline:0;
+    accent-color: var(--bg2);
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--font-size1);
+}
+
+#servers-table button {
+    background: var(--bg3);
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--button-font-size);
+    border-radius: 5px;
+}
+
+#servers-table .delete button {
+    background-color: rgb(163, 48, 48);
+    left: 10px;
+}

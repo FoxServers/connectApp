@@ -1,0 +1,98 @@
+@import url(./default.css);
+
+.alert {
+    bottom: 1;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 7px;
+    margin-right: 5px;
+    font-size: 0.75rem;
+    z-index: 1;
+    width: min(100%, 50rem);
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 10s;
+    --webkit-animation-fill-mode: forwards;
+    animation-name: fade;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+}
+
+#copyAlert {
+    display: none;
+    bottom: 1;
+    background-color: #209425; /* Green */
+    color: white;
+    margin-bottom: 7px;
+    margin-right: 5px;
+    font-size: 0.75rem;
+    z-index: 1;
+    width: min(100%, 50rem);
+    height: fit-content;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 5s;
+    --webkit-animation-fill-mode: forwards;
+    animation-name: fade;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+#copyAlert.show {
+    display: block;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 5s;
+    --webkit-animation-fill-mode: forwards;
+    animation-name: fade;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+.goodAlert {
+    bottom: 1;
+    background-color: #209425; /* Green */
+    color: white;
+    margin-bottom: 7px;
+    margin-right: 5px;
+    font-size: 0.75rem;
+    z-index: 1;
+    width: min(100%, 50rem);
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 5s;
+    --webkit-animation-fill-mode: forwards;
+    animation-name: fade;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 1rem;
+    line-height: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right: 1rem;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+@-webkit-keyframes fade {
+    0% {opacity: 0} 
+    10% {opacity: 1}
+    90% {opacity: 1}
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fade {
+    0% {opacity: 0} 
+    10% {opacity: 1}
+    90% {opacity: 1}
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,33 @@
+:root {
+    --font-family: "Luxora Light", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    --font-family-heavy: "Luxora", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    --font-size1: 1rem;
+    --font-size2: 1.5rem;
+    --font-size3: 1.25rem;
+    --button-font-size: 0.8rem;
+
+
+    --nord-1: #2e3440;
+    --nord-2: #3b4252;
+    --nord-3: #4c566a;
+
+    --dark-blue: #5E81AC;
+
+    --appbg: rgb(29, 33, 41);
+    --bg: rgb(36, 41, 51);
+    --bg2: rgb(46, 52, 64);
+    --bg3: #434c5e;
+    --fg: rgb(236, 239, 244);
+    --fg-dark: rgb(179, 183, 192);
+    --fg-dark2: rgb(131, 133, 138);
+
+    --shadow: rgba(15, 17, 21, 0.25) 0px 4px 6px, rgba(15, 17, 21, 0.1) 0px 5px 7px;
+    --float: 0px 0px 20px #000000bb;
+    --float-light: 0px 0px 20px rgba(236, 239, 244, 0.5);
+    --float-dark: 0px 0px 15px #000000ff;
+    --url: rgb(87, 124, 134);
+    --url-hovered: rgb(136, 192, 208);
+    --url-visited: #8b5443;
+
+    --modal-pos: 1.3rem;
+}

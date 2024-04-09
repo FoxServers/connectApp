@@ -1,0 +1,67 @@
+@import url(./default.css);
+
+div#connection_manager {
+    /* display: inline-block; */
+    height: fit-content;
+    width: min(100%, 50rem);
+    text-align: right;
+    background: var(--bg);
+    overflow: auto;
+    text-wrap: nowrap;
+    padding-inline: 3px;
+    margin: 0 auto;
+}
+
+#connection_manager button {
+    display: inline-block;
+    padding: 1px;
+    margin-inline: 2px;
+    margin-bottom: 1px;
+    background: var(--bg3);
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--button-font-size);
+    border-radius: 5px;
+}
+
+#connection_manager button:last-child {
+    display: inline-block;
+    padding: 1px;
+    margin-right: 4px;
+    margin-bottom: 1px;
+    background: var(--bg3);
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--button-font-size);
+    border-radius: 5px;
+}
+
+#connection_manager label {
+    width: fit-content;
+    background: none;
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--button-font-size);
+    float: left;
+    margin-inline: 5px;
+    margin-top: 0.20rem;
+}
+
+#connection_manager div.path {
+    float: left;
+    width: calc(min(100%, 50rem) - 12rem);
+}
+
+#connection_manager input[type=text] {
+    background: var(--bg2);
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--button-font-size);
+    float: left;
+    width: calc(min(100%, 50rem) - 11rem);
+    outline: 1px solid gray;
+    border-radius: 5px;
+    border-width: 0.5px;
+    padding-left : 3px;
+    overflow: ellipse;
+}

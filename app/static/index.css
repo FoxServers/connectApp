@@ -1,0 +1,69 @@
+@import url(./default.css);
+@import url(./servers-table.css);
+@import url(./scrollbar.css);
+@import url(./left-menu.css);
+@import url(./record-manager.css);
+@import url(./connection-manager.css);
+@import url(./top-bar.css);
+@import url(./modal.css);
+@import url(./alert.css);
+
+@font-face {
+    font-family: "Luxora Light";
+    src: url("/assets/fonts/LuxoraGrotesk-Light.ttf");
+}
+
+html {
+    overflow: hidden;
+    background-color: var(--bg2);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg2);
+}
+
+body {
+    background: rgba(36, 41, 51, 0.1);
+    margin: 0;
+    min-width:fit-content
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    background-color: var(--bg2);
+}
+
+body > :first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+body > :last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+div#main {
+    /* height: 200px; */
+    height: 300px;
+    width: min(100%, 50rem);
+    display: grid;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    grid-template-columns: auto;
+    background: var(--bg);
+    margin: 0 auto;
+}
+
+#servers-table {
+    overflow-y: auto;
+    font-family: var(--font-family);
+    color: var(--fg);
+    font-size: var(--font-size1);
+}
+
